@@ -7,7 +7,6 @@
  */
 
 document.addEventListener("DOMContentLoaded", function(){
-options = Joomla.getOptions('mod_switcheditor');
 
 const els = document.querySelectorAll('.adEditor');	
 for (let i = 0; i < els.length; i++) {

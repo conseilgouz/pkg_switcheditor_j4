@@ -15,10 +15,48 @@ use Joomla\CMS\Version;
 class pkg_SwitchEditorInstallerScript
 {
 	protected $db;
+	private $min_joomla_version      = '4.0.0';
+	private $min_php_version         = '8.0';
+	private $installerName = 'switcheditorinstaller';
 	
 	public function __construct()
 	{
 		$this->db = Factory::getDbo();
+	}
+    function preflight($type, $parent)
+    {
+		// To prevent installer from running twice if installing multiple extensions
+		if ( ! file_exists($this->dir . '/' . $this->installerName . '.xml'))
+		{
+			return true;
+		}
+
+		if ( ! $this->passMinimumJoomlaVersion())
+		{
+			$this->uninstallInstaller();
+
+			return false;
+		}
+
+		if ( ! $this->passMinimumPHPVersion())
+		{
+			$this->uninstallInstaller();
+
+			return false;
+		}
+		$obsloteFiles = ["SwitchEditorHelper.php"];
+		foreach ($obsloteFiles as $file) {
+			$f = JPATH_ADMINISTRATOR . '/modules/mod_switcheditor/src/Helper' . $file;
+			if (@is_file($f)) {
+				File::delete($f);
+			}
+			$f = JPATH_ROOT . '/modules/mod_switcheditor/src/Helper' . $file;
+			if (@is_file($f)) {
+				File::delete($f);
+			}
+		}
+
+
 	}
 
 	public function postflight($type, $parent)
@@ -30,19 +68,17 @@ class pkg_SwitchEditorInstallerScript
 		$j = new Version();
 		$version=substr($j->getShortVersion(), 0,1); 
 		// remove obsolete files
-		if ($version >= "4") { // Joomla 4.X
-			$obsloteFiles = ["helper.php"];
-			foreach ($obsloteFiles as $file) {
-				$f = JPATH_ADMINISTRATOR . '/modules/mod_switcheditor/' . $file;
-				if (@is_file($f)) {
-					File::delete($f);
-				}
-				$f = JPATH_ROOT . '/modules/mod_switcheditor/' . $file;
-				if (@is_file($f)) {
-					File::delete($f);
-				}
+		$obsloteFiles = ["helper.php","mod_switcheditor.php"];
+		foreach ($obsloteFiles as $file) {
+			$f = JPATH_ADMINISTRATOR . '/modules/mod_switcheditor/' . $file;
+			if (@is_file($f)) {
+				File::delete($f);
 			}
-		} 
+			$f = JPATH_ROOT . '/modules/mod_switcheditor/' . $file;
+			if (@is_file($f)) {
+				File::delete($f);
+			}
+		}
 		// plugin not used anymore
 		$query = $this->db->getQuery(true)
 			->delete('#__extensions')
@@ -116,4 +152,64 @@ class pkg_SwitchEditorInstallerScript
 		$this->db->setQuery($query);
 		$this->db->execute();
 	}
+	// Check if Joomla version passes minimum requirement
+	private function passMinimumJoomlaVersion()
+	{
+		if (version_compare(JVERSION, $this->min_joomla_version, '<'))
+		{
+			Factory::getApplication()->enqueueMessage(
+				Text::sprintf(
+					'NOT_COMPATIBLE_UPDATE',
+					'<strong>' . JVERSION . '</strong>',
+					'<strong>' . $this->min_joomla_version . '</strong>'
+				),
+				'error'
+			);
+
+			return false;
+		}
+
+		return true;
+	}
+
+	// Check if PHP version passes minimum requirement
+	private function passMinimumPHPVersion()
+	{
+
+		if (version_compare(PHP_VERSION, $this->min_php_version, 'l'))
+		{
+			Factory::getApplication()->enqueueMessage(
+				Text::sprintf(
+					'NOT_COMPATIBLE_PHP',
+					'<strong>' . PHP_VERSION . '</strong>',
+					'<strong>' . $this->min_php_version . '</strong>'
+				),
+				'error'
+			);
+
+			return false;
+		}
+
+		return true;
+	}
+	private function uninstallInstaller()
+	{
+		if ( ! is_dir(JPATH_PLUGINS . '/system/' . $this->installerName)) {
+			return;
+		}
+		$this->delete([
+			JPATH_PLUGINS . '/system/' . $this->installerName . '/language',
+			JPATH_PLUGINS . '/system/' . $this->installerName,
+		]);
+		$db = Factory::getDbo();
+		$query = $db->getQuery(true)
+			->delete('#__extensions')
+			->where($db->quoteName('element') . ' = ' . $db->quote($this->installerName))
+			->where($db->quoteName('folder') . ' = ' . $db->quote('system'))
+			->where($db->quoteName('type') . ' = ' . $db->quote('plugin'));
+		$db->setQuery($query);
+		$db->execute();
+		Factory::getCache()->clean('_system');
+	}
+	
 }
