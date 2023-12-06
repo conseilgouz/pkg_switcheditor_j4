@@ -10,7 +10,7 @@ defined('_JEXEC') or die;
 use Joomla\CMS\Factory;
 use Joomla\Filesystem\File;
 use Joomla\Filesystem\Folder;
-use Joomla\CMS\Version;
+use Joomla\CMS\Language\Text;
 
 class pkg_SwitchEditorInstallerScript
 {
@@ -171,7 +171,7 @@ class pkg_SwitchEditorInstallerScript
 	private function passMinimumPHPVersion()
 	{
 
-		if (version_compare(PHP_VERSION, $this->min_php_version, 'l'))
+		if (version_compare(PHP_VERSION, $this->min_php_version, '<'))
 		{
 			Factory::getApplication()->enqueueMessage(
 				Text::sprintf(
