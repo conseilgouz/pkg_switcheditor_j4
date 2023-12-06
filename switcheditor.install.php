@@ -60,8 +60,6 @@ class pkg_SwitchEditorInstallerScript
 		{
 			return;
 		}
-		$j = new Version();
-		$version=substr($j->getShortVersion(), 0,1); 
 		// remove obsolete files
 		$obsloteFiles = ["helper.php","mod_switcheditor.php"];
 		foreach ($obsloteFiles as $file) {
