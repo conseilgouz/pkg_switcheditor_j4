@@ -25,11 +25,6 @@ class pkg_SwitchEditorInstallerScript
 	}
     function preflight($type, $parent)
     {
-		// To prevent installer from running twice if installing multiple extensions
-		if ( ! file_exists($this->dir . '/' . $this->installerName . '.xml'))
-		{
-			return true;
-		}
 
 		if ( ! $this->passMinimumJoomlaVersion())
 		{
