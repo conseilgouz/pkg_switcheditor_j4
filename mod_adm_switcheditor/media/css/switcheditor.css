@@ -1,0 +1,12 @@
+/**
+ * @package    Switch Editor
+ * @subpackage mod_switcheditor
+ * @copyright  Copyright (C) 2021 ConseilGouz. All rights reserved.
+ * From anything-digital.com Switch Editor
+ * @license    GNU/GPLv2
+ */
+
+.adEditorFormBox {display:inline;line-height:25px;}
+.adEditorFormBox form {display:inline;margin:0}
+.adEditor {opacity:1;background-color:#FFFFDD;width:auto}
+.adEditorBusy {opacity:0.2;background-color:#FF0000}

@@ -1,0 +1,13 @@
+<changelogs>
+	<changelog>
+		<element>switcheditor</element>
+		<type>package</type>
+		<version>2.3.0</version>
+        <note>
+            <item>Update : 06/12/2023</item>
+        </note>
+		<change>
+			<item>Joomla! 4.x/5.x only version</item>
+		</change>
+	</changelog>
+</changelogs>

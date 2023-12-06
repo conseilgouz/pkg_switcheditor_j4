@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension version="4.0" type="module" method="upgrade" client="site">
+	<name>mod_switcheditor</name>
+	<license>GNU General Public License version 3, or later</license>
+	<creationDate>2023-12-06</creationDate>
+	<author>ConseilGouz</author>
+	<authorEmail>pascal.leconte@conseilgouz.com</authorEmail>
+	<authorUrl>https://www.conseilgouz.com</authorUrl>
+	<copyright>(C)2023 ConseilGouz. All rights reserved.</copyright>
+	<version>2.3.0</version>
+	<description>MOD_SWITCHEDITOR_XML_DESCRIPTION</description>
+	<namespace path="src">ConseilGouz\Module\Switcheditor</namespace>
+	<changelogurl>https://raw.githubusercontent.com/conseilgouz/pkg_switcheditor_j4/master/pkg_switcheditor_changelog.xml</changelogurl>
+	<languages>
+		<language tag="en-GB">language/en-GB/mod_switcheditor.sys.ini</language>
+		<language tag="en-GB">language/en-GB/mod_switcheditor.ini</language>
+		<language tag="fr-FR">language/fr-FR/mod_switcheditor.sys.ini</language>
+		<language tag="fr-FR">language/fr-FR/mod_switcheditor.ini</language>
+	</languages>
+	<files>
+		<folder module="mod_switcheditor">services</folder>
+		<filename>index.html</filename>
+		<folder>tmpl</folder>
+		<folder>src</folder>
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="basic"  addfieldprefix="ConseilGouz\Module\Switcheditor\Site\Field">
+			<field name="version" type="version"  margintop="-3em" extension="mod_switcheditor"/>
+				<field	name="compact"
+					type="radio" 
+					label="MOD_SWITCHEDITOR_COMPACT" description="MOD_SWITCHEDITOR_COMPACT_DESC"
+					layout="joomla.form.field.radio.switcher"
+					default="0">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

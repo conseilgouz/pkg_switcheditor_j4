@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension type="package" version="3.10" method="upgrade">
+	<name>switch editor 2</name>
+	<packagename>switcheditor</packagename>
+	<version>2.3.0</version>
+	<author>ConseilGouz</author>
+	<authorEmail>pascal.leconte@nordnet.fr</authorEmail>
+	<authorUrl>https://www.conseilgouz.com</authorUrl>
+	<copyright>(C)2023 ConseilGouz. All rights reserved.</copyright>
+	<license>GNU General Public License version 3, or later</license>
+	<creationDate>2023-12-06</creationDate>
+	<description>switch editor for Joomla 3.10/4.x/5.x</description>
+	<files folder="packages">
+		<file type="module" id="mod_switcheditor" client="administrator">mod_adm_switcheditor.zip</file>
+		<file type="module" id="mod_switcheditor" client="site">mod_site_switcheditor.zip</file>
+	</files>
+	<scriptfile>switcheditor.install.php</scriptfile>
+	<languages folder="language">
+		<language tag="en-GB">en-GB/pkg_switcheditor.sys.ini</language>
+		<language tag="fr-FR">fr-FR/pkg_switcheditor.sys.ini</language>
+	</languages>
+	<changelogurl>https://raw.githubusercontent.com/conseilgouz/pkg_switcheditor_j4/master/pkg_switcheditor_changelog.xml</changelogurl>
+	<updateservers>
+	<server type="extension" name="switcheditor" priority="1">https://raw.githubusercontent.com/conseilgouz/updates_github/master/pkg_switcheditor_update.xml</server>
+	</updateservers>
+	
+</extension>
