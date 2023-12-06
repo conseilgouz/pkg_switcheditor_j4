@@ -46,11 +46,11 @@ class pkg_SwitchEditorInstallerScript
 		}
 		$obsloteFiles = ["SwitchEditorHelper.php"];
 		foreach ($obsloteFiles as $file) {
-			$f = JPATH_ADMINISTRATOR . '/modules/mod_switcheditor/src/Helper' . $file;
+			$f = JPATH_ADMINISTRATOR . '/modules/mod_switcheditor/src/Helper/' . $file;
 			if (@is_file($f)) {
 				File::delete($f);
 			}
-			$f = JPATH_ROOT . '/modules/mod_switcheditor/src/Helper' . $file;
+			$f = JPATH_ROOT . '/modules/mod_switcheditor/src/Helper/' . $file;
 			if (@is_file($f)) {
 				File::delete($f);
 			}
