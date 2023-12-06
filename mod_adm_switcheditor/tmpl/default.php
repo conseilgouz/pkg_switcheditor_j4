@@ -12,11 +12,10 @@ use Joomla\CMS\Factory;
 use Joomla\CMS\Helper\ModuleHelper;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
-use Joomla\CMS\Version;
 
 // Joomla 4.0 custom field conflict 
 if (($app->input->get('option') == 'com_fields') && ($app->input->get('view') == 'field') && ($app->input->get('layout') == 'edit')) return;
-$version=substr($j->getShortVersion(), 0,1); 
+
 $value = Factory::getUser()->getParam('editor');
 /** @var Joomla\CMS\WebAsset\WebAssetManager $wa */
 $wa = Factory::getDocument()->getWebAssetManager();

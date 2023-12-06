@@ -12,8 +12,6 @@ use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Factory;
 use Joomla\CMS\Helper\ModuleHelper;
 use Joomla\CMS\Version;
-use ConseilGouz\Module\Switcheditor\Site\Helper\SwitcheditorHelper;
-use Joomla\CMS\Uri\Uri;
 
 // Joomla 4.0 custom field conflict 
 if (($app->input->get('option') == 'com_fields') && ($app->input->get('view') == 'field') && ($app->input->get('layout') == 'edit')) return;
