@@ -50,7 +50,7 @@ class pkg_SwitchEditorInstallerScript
 				File::delete($f);
 			}
 		}
-
+		return true;
 
 	}
 
