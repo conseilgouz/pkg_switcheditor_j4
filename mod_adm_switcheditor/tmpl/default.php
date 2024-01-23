@@ -24,9 +24,5 @@ $wa->registerAndUseScript('switcheditor','media/switcheditor/js/switcheditor.js'
 
 ?>
 <div class="adEditorFormBox btn-group">
-	<form action="index.php?option=switcheditor" method="post" name="adEditorForm">
 		<?php echo str_replace(' id="adEditor"', '', HTMLHelper::_('select.genericlist', $options,'adEditor', ' class="adEditor chzn-done" data-chosen="done"','element', 'name',$value)); ?>
-		<input type="hidden" name="task" value="switch" />
-		<?php echo HTMLHelper::_('form.token'); ?>
-	</form>
 </div>

@@ -2,6 +2,18 @@
 	<changelog>
 		<element>switcheditor</element>
 		<type>package</type>
+		<version>2.3.5</version>
+        <note>
+            <item>Update : 23/01/2024</item>
+        </note>
+		<fix>
+			<item>Admin : SP Page Builder conflict : remove form tags</item>
+			<item>Fix editors list if editor name does not contain '-' character.</list>
+		</fix>
+	</changelog>
+	<changelog>
+		<element>switcheditor</element>
+		<type>package</type>
 		<version>2.3.4</version>
         <note>
             <item>Update : 07/12/2023</item>

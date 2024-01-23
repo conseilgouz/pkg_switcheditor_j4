@@ -2,7 +2,7 @@
 /**
  * @package    Switch Editor
  * @subpackage mod_switcheditor site
- * @copyright  Copyright (C) 2023 ConseilGouz. All rights reserved.
+ * @copyright  Copyright (C) 2024 ConseilGouz. All rights reserved.
  * From anything-digital.com Switch Editor
  * @license    GNU/GPLv3
  */
@@ -48,7 +48,7 @@ class SwitcheditorHelper
 					$editor->name = Text::_($editor->name);
 					// strip of any prefixed "Editor - " bits
 					if ($params->get('compact',0) == 1) { // compact view : remove word editor
-						if (false === strpos('-', $editor->name)) {
+						if (strpos($editor->name,'-')) {
 							list($tmp, $name) = explode('-', $editor->name, 2);
 							if (isset($name) && !empty($name)) {
 								$editor->name = trim($name);

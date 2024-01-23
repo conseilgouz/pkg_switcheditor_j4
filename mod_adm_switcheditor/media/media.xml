@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension version="4.x" type="file" method="upgrade">
-	<name>Conseilgouz Layouts</name>
+	<name>SwitchEditor Medias</name>
 	<author>ConseilGouz</author>
-	<creationDate>October 2017</creationDate>
-	<copyright>>Copyright (C) 2017 All rights reserved</copyright>
-	<license>GNU General Public License version 2</license>
+	<creationDate>2024-01-23</creationDate>
+	<copyright>(C) ConseilGouz 2024 All rights reserved</copyright>
+	<license>GNU General Public License version 3</license>
 	<authorEmail>pascal.leconte@conseilgouz.com</authorEmail>
 	<authorUrl>https://www.conseilgouz.com</authorUrl>
-	<version>1.0.1</version>
-	<description>Ce plugin assure l'installation des layouts</description>
+	<version>2.3.5</version>
+	<description>Install SwitchEditor Medias</description>
 	<media destination="switcheditor" folder="media">
 		<folder>css</folder>
 		<folder>images</folder>
