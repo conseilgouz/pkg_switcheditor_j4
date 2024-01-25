@@ -35,11 +35,12 @@ for (let i = 0; i < els.length; i++) {
 function doSave() {
 	let articletext = document.querySelector('#jform_articletext');
 	let moduletext = document.querySelector('#jform_content');
-	if (articletext) { // article
+	let title = document.querySelector('#jform_title');
+	if (articletext && title.value) { // article + title ok
 		Joomla.submitbutton('article.apply', null, true);
 		return;
 	} 
-	if (moduletext) { // module
+	if (moduletext && title.value )  { // module + title ok
 		Joomla.submitbutton('module.apply', null, true);
 		return;
 	}
