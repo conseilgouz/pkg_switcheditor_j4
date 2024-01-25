@@ -2,9 +2,9 @@
 /**
  * @package    Switch Editor
  * @subpackage mod_switcheditor site
- * @copyright  Copyright (C) 2023 ConseilGouz. All rights reserved.
+ * @copyright  Copyright (C) 2024 ConseilGouz. All rights reserved.
  * From anything-digital.com Switch Editor
- * @license    GNU/GPLv2
+ * @license    GNU/GPLv3
  */
 
 namespace ConseilGouz\Module\Switcheditor\Administrator\Field;

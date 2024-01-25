@@ -2,12 +2,12 @@
 <extension version="4.x" type="file" method="upgrade">
 	<name>SwitchEditor Medias</name>
 	<author>ConseilGouz</author>
-	<creationDate>2024-01-23</creationDate>
+	<creationDate>2024-01-25</creationDate>
 	<copyright>(C) ConseilGouz 2024 All rights reserved</copyright>
 	<license>GNU General Public License version 3</license>
 	<authorEmail>pascal.leconte@conseilgouz.com</authorEmail>
 	<authorUrl>https://www.conseilgouz.com</authorUrl>
-	<version>2.3.5</version>
+	<version>2.4.0</version>
 	<description>Install SwitchEditor Medias</description>
 	<media destination="switcheditor" folder="media">
 		<folder>css</folder>

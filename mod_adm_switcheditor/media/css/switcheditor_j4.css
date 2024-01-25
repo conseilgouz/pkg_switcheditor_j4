@@ -1,9 +1,9 @@
 /**
  * @package    Switch Editor
  * @subpackage mod_switcheditor
- * @copyright  Copyright (C) 2021 ConseilGouz. All rights reserved.
+ * @copyright  Copyright (C) 2024 ConseilGouz. All rights reserved.
  * From anything-digital.com Switch Editor
- * @license    GNU/GPLv2
+ * @license    GNU/GPLv3
  */
 
 .adEditorFormBox {display:inline;line-height:25px;}
@@ -16,4 +16,34 @@ background-color: var(--template-bg-light);border: 1px solid var(--template-bg-d
 .adEditor option {
     color: var(--template-text-dark);
     background-color: #fff;
+}
+/* from https://cssloaders.github.io/ */
+.switching {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  margin:5px 30%;
+  position: relative;
+  color: #9E9E9E;
+  box-sizing: border-box;
+  animation: animswitch 2s linear infinite;
+}
+
+@keyframes animswitch {
+  0% {
+    box-shadow: 14px 0 0 -2px,  38px 0 0 -2px,  -14px 0 0 -2px,  -38px 0 0 -2px;
+  }
+  25% {
+    box-shadow: 14px 0 0 -2px,  38px 0 0 -2px,  -14px 0 0 -2px,  -38px 0 0 2px;
+  }
+  50% {
+    box-shadow: 14px 0 0 -2px,  38px 0 0 -2px,  -14px 0 0 2px,  -38px 0 0 -2px;
+  }
+  75% {
+    box-shadow: 14px 0 0 2px,  38px 0 0 -2px,  -14px 0 0 -2px,  -38px 0 0 -2px;
+  }
+  100% {
+    box-shadow: 14px 0 0 -2px,  38px 0 0 2px,  -14px 0 0 -2px,  -38px 0 0 -2px;
+  }
 }
