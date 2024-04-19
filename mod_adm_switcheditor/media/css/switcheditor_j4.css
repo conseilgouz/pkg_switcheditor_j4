@@ -17,6 +17,10 @@ background-color: var(--template-bg-light);border: 1px solid var(--template-bg-d
     color: var(--template-text-dark);
     background-color: #fff;
 }
+/* Joomla 5.x Dark mode */
+[data-color-scheme="dark"] .adEditor {
+background: url(../images/select-bg-dark.svg) no-repeat 100%/100rem;
+}
 /* from https://cssloaders.github.io/ */
 .switching {
   width: 12px;
