@@ -2,6 +2,17 @@
 	<changelog>
 		<element>switcheditor</element>
 		<type>package</type>
+		<version>2.4.6</version>
+        <note>
+            <item>Update : 1/11/2024</item>
+        </note>
+		<fix>
+			<item>Missing ru-RU files in xml, forgot to zip package, sorry...</item>
+		</fix>
+	</changelog>
+	<changelog>
+		<element>switcheditor</element>
+		<type>package</type>
 		<version>2.4.5</version>
         <note>
             <item>Update : 1/11/2024</item>
