@@ -2,7 +2,7 @@
 <extension type="package" version="4.0" method="upgrade">
 	<name>switch editor 2</name>
 	<packagename>switcheditor</packagename>
-	<version>2.4.4</version>
+	<version>2.4.5</version>
 	<author>ConseilGouz</author>
 	<authorEmail>pascal.leconte@nordnet.fr</authorEmail>
 	<authorUrl>https://www.conseilgouz.com</authorUrl>
@@ -18,6 +18,7 @@
 	<languages folder="language">
 		<language tag="en-GB">en-GB/pkg_switcheditor.sys.ini</language>
 		<language tag="fr-FR">fr-FR/pkg_switcheditor.sys.ini</language>
+		<language tag="ru-RU">ru-RU/pkg_switcheditor.sys.ini</language>
 	</languages>
 	<changelogurl>https://raw.githubusercontent.com/conseilgouz/pkg_switcheditor_j4/master/pkg_switcheditor_changelog.xml</changelogurl>
 	<updateservers>
