@@ -29,7 +29,10 @@ if (!is_file(JPATH_ROOT . '/media/switcheditor/js/switcheditor.js')) {
 $wa->registerAndUseScript('switcheditor','media/switcheditor/js/switcheditor.js');
 
 $document 		= Factory::getDocument();
-$document->addScriptOptions('mod_switcheditor', array('auto' => $params->get('auto','0'),'automsg' => Text::_("MOD_SWITCHEDITOR_SWITCHING")));
+$document->addScriptOptions('mod_switcheditor_'.$module->id, 
+            array('auto' => $params->get('auto','0'),'automsg' => Text::_("MOD_SWITCHEDITOR_SWITCHING"),
+                  'fixed' => $params->get('fixed', '0'))
+            );
 
 ?>
 <noscript>
@@ -38,6 +41,6 @@ $document->addScriptOptions('mod_switcheditor', array('auto' => $params->get('au
     </div>
 </noscript>
 
-<div class="adEditorFormBox btn-group">
+<div class="adEditorFormBox btn-group" data="<?php echo $module->id;?>">
 		<?php echo str_replace(' id="adEditor"', '', HTMLHelper::_('select.genericlist', $options,'adEditor', ' class="adEditor chzn-done" data-chosen="done"','element', 'name',$value)); ?>
 </div>

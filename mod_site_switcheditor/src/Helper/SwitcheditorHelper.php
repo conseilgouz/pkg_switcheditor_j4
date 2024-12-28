@@ -16,6 +16,7 @@ use Joomla\CMS\Language\Text;
 use Joomla\CMS\Version;
 use Joomla\CMS\Session\Session;
 use Joomla\CMS\Response\JsonResponse;
+use Joomla\Database\DatabaseInterface;
 
 class SwitcheditorHelper
 {
@@ -30,7 +31,7 @@ class SwitcheditorHelper
 		static $editors;
 		if (is_null($editors))
 		{
-			$db = Factory::getDBO();
+			$db = Factory::getContainer()->get(DatabaseInterface::class);
 			$db->setQuery((string) $db->getQuery(true)
 					->select('element, name')
 					->from('#__extensions')
@@ -44,7 +45,7 @@ class SwitcheditorHelper
 			{
 				foreach ($editors as &$editor)
 				{
-					Factory::getLanguage()->load($editor->name . '.sys', JPATH_ADMINISTRATOR);
+					Factory::getApplication()->getLanguage()->load($editor->name . '.sys', JPATH_ADMINISTRATOR);
 					$editor->name = Text::_($editor->name);
 					// strip of any prefixed "Editor - " bits
 					if ($params->get('compact',0) == 1) { // compact view : remove word editor
@@ -83,7 +84,7 @@ class SwitcheditorHelper
 	 */
 	static public function setEditor()
 	{
-		$user   = Factory::getUser();
+		$user   = Factory::getApplication()->getIdentity();
 		$editor = Factory::getApplication()->input->get('adEditor');
 		if (!empty($editor) && !$user->guest)
 		{
@@ -106,7 +107,7 @@ class SwitcheditorHelper
 		    return false;
 		}
 	    $input = Factory::getApplication()->input->request;
-	    $user   = Factory::getUser();
+	    $user   = Factory::getApplication()->getIdentity();
 	    $editor = $input->get('adEditor');
 	    if (!empty($editor) && !$user->guest)
 	    {

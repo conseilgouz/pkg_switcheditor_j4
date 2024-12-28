@@ -2,12 +2,12 @@
 <extension version="4.0" type="module" method="upgrade" client="administrator">
 	<name>mod_switcheditor</name>
 	<license>GNU General Public License version 3, or later</license>
-	<creationDate>2024-11-01</creationDate>
+	<creationDate>2024-12-28</creationDate>
 	<author>ConseilGouz</author>
 	<authorEmail>pascal.leconte@conseilgouz.com</authorEmail>
 	<authorUrl>https://www.conseilgouz.com</authorUrl>
 	<copyright>(C)2024 ConseilGouz. All rights reserved.</copyright>
-	<version>2.4.6</version>
+	<version>2.5.0</version>
 	<description>MOD_SWITCHEDITOR_XML_DESCRIPTION</description>
 	<namespace path="src">ConseilGouz\Module\Switcheditor</namespace>
 	<changelogurl>https://raw.githubusercontent.com/conseilgouz/pkg_switcheditor_j4/master/pkg_switcheditor_changelog.xml</changelogurl>
@@ -24,6 +24,7 @@
 		<folder>src</folder>
 		<folder>tmpl</folder>
 		<filename>index.html</filename>
+        <filename>mod_pos.xml</filename>
 	</files>
 	<media destination="switcheditor" folder="media">
 		<folder>css</folder>
@@ -51,6 +52,20 @@
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
 				</field>
+                <field	name="notefixed"	type="note" label="MOD_SWITCHEDITOR_NOTE" class="alert-success"/>                
+				<field	name="fixed"
+					type="radio" class="btn-group"
+					label="MOD_SWITCHEDITOR_FIXED" description="MOD_SWITCHEDITOR_FIXED_DESC"
+					default="0">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+					<option value="2">MOD_SWITCHEDITOR_TOOLBOX</option>
+					<option value="3">MOD_SWITCHEDITOR_XTDBUTTONS</option>
+                    <option value="4">MOD_SWITCHEDITOR_TABLIST</option>
+				</field>
+				<field name="position" label="" type="subform" multiple ="false" showon="fixed:1"
+				formsource="administrator/modules/mod_switcheditor/mod_pos.xml" layout="joomla.form.field.subform.repeatable-table"/>
+                
 			</fieldset>
 		</fields>
 	</config>

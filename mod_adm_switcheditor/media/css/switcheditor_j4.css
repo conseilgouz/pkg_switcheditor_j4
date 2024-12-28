@@ -51,3 +51,54 @@ background: url(../images/select-bg-dark.svg) no-repeat 100%/100rem;
     box-shadow: 14px 0 0 -2px,  38px 0 0 2px,  -14px 0 0 -2px,  -38px 0 0 -2px;
   }
 }
+/* */
+.left_top {
+    position: fixed;
+    top: 8em;
+    z-index: 1000;
+}
+.left_center {
+    position: fixed;
+    top: 50vh;
+    left: 0vw;
+    transform: rotate(90deg);
+    margin-left: -1em;
+    z-index: 1000;
+}
+.left_bottom {
+    position: fixed;
+    top: 90vh;
+    left: 0vw;
+    transform: rotate(90deg);
+    margin-left: -1em;
+    z-index: 1000;
+}
+.right_top {
+    position: fixed;
+    top: 8em;
+    right: 0;
+    z-index: 1000;
+    direction:rtl;
+ }
+.right_center {
+    position: fixed;
+    top: 50vh;
+    right: 0vw;
+    transform: rotate(-90deg);
+    margin-right: -1em;
+    z-index: 1000;
+    direction:rtl;
+}
+.right_bottom {
+    position: fixed;
+    top: 90vh;
+    right: 0vw;
+    transform: rotate(-90deg);
+    margin-right: -1em;
+    z-index: 1000;
+}
+.right_center select,
+.right_top select ,
+.right_bottom select{
+    text-align:left
+}
