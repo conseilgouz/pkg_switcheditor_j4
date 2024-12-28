@@ -12,11 +12,9 @@ document.addEventListener("DOMContentLoaded", function(){
 const boxs = document.querySelectorAll('.adEditorFormBox');	    
 let systemmsg = document.querySelector('#system-message-container');
 let toolbar = document.querySelector('#toolbar');
-if (toolbar){
-    let pos = toolbar.querySelector('.ms-auto');
-    if (!pos) {
-        pos = toolbar.querySelector('#toolbar-inlinehelp');
-    }
+let pos = toolbar.querySelector('.ms-auto');
+if (toolbar && !pos) {
+    pos = toolbar.querySelector('#toolbar-inlinehelp');
 }
 let xtdbuttons = document.querySelector('.editor-xtd-buttons');
 
@@ -27,6 +25,7 @@ for(var i=0; i<boxs.length; i++) {
 		console.error('Joomla.getOptions not found!\nThe Joomla core.js file is not being loaded.');
 		return false;
 	}
+    if (swedoptions[oneid]) continue; // already defined
     swedoptions[oneid] = Joomla.getOptions('mod_switcheditor_'+oneid);
 
     let swe = "";
@@ -44,7 +43,14 @@ for(var i=0; i<boxs.length; i++) {
         if (toolbar) toolbar.insertBefore(els,pos);
     }
     if (swedoptions[oneid].fixed == '3') { // editor xtd buttons
-        if (xtdbuttons) xtdbuttons.appendChild(els); 
+        if (!xtdbuttons) { 
+            tog = document.querySelector('.toggle-editor .btn-group');
+            if (tog) { // tinymce
+                pos = tog.querySelector('.js-tiny-toggler-button');
+                tog.insertBefore(els,pos);
+                xtdbuttons = tog.querySelector('[role="toolbar"]'); 
+            }
+        } else if (xtdbuttons) xtdbuttons.appendChild(els); 
     }
     if (swedoptions[oneid].fixed == '4') { // in tabs list
         tablist = document.querySelector('[role="tablist"]');
@@ -53,9 +59,9 @@ for(var i=0; i<boxs.length; i++) {
     
 	els.addEventListener('change', function (ev) {
 		if (systemmsg && (swedoptions[oneid].auto == 1) ) {
-			swe = document.createElement('div');
-			swe.innerHTML = '<joomla-alert type="warning" role="alert" style="animation-name: joomla-alert-fade-in;"><div class="alert-heading"><span class="visually-hidden">info</span></div><div class="alert-wrapper"><div class="alert-message">'+swedoptions[oneid].automsg+'<span class="switching"></span></div></div></joomla-alert>';
-			systemmsg.appendChild(swe);
+			box = document.createElement('div');
+			box.innerHTML = '<joomla-alert type="warning" role="alert" style="animation-name: joomla-alert-fade-in;"><div class="alert-heading"><span class="visually-hidden">info</span></div><div class="alert-wrapper"><div class="alert-message">'+swedoptions[oneid].automsg+'<span class="switching"></span></div></div></joomla-alert>';
+			systemmsg.appendChild(box);
 		}
 		var csrf = Joomla.getOptions("csrf.token", "");
 		var url = "?"+csrf+"=1&option=com_ajax&module=switcheditor&adEditor="+ev.srcElement.value+"&task=switch&format=json";
