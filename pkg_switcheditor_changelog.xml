@@ -2,6 +2,17 @@
 	<changelog>
 		<element>switcheditor</element>
 		<type>package</type>
+		<version>2.5.1</version>
+        <note>
+            <item>Update : 28/12/2024</item>
+        </note>
+		<fix>
+			<item>Front end : fixed position error</item>
+		</fix>
+	</changelog>
+	<changelog>
+		<element>switcheditor</element>
+		<type>package</type>
 		<version>2.5.0</version>
         <note>
             <item>Update : 28/12/2024</item>

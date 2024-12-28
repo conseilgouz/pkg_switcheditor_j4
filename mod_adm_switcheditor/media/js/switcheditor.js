@@ -12,9 +12,12 @@ document.addEventListener("DOMContentLoaded", function(){
 const boxs = document.querySelectorAll('.adEditorFormBox');	    
 let systemmsg = document.querySelector('#system-message-container');
 let toolbar = document.querySelector('#toolbar');
-let pos = toolbar.querySelector('.ms-auto');
-if (toolbar && !pos) {
-    pos = toolbar.querySelector('#toolbar-inlinehelp');
+let pos = null;
+if (toolbar) {
+    pos = toolbar.querySelector('.ms-auto');
+    if (!pos) {
+        pos = toolbar.querySelector('#toolbar-inlinehelp');
+    }
 }
 let xtdbuttons = document.querySelector('.editor-xtd-buttons');
 
