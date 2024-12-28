@@ -30,7 +30,13 @@ for(var i=0; i<boxs.length; i++) {
 
     let swe = "";
     const els = one.querySelector('.adEditor');	
-    if (swedoptions[oneid].fixed == '1') { // fixed position
+    editor = document.querySelector('.js-editor-tinymce')
+            || document.querySelector('.wf-editor-container') 
+            || document.querySelector('joomla-editor-none')
+            || document.querySelector('joomla-editor-codemirror');
+    // joomla-editor-none joomla-editor-codemirror .wf-editor-container .js-editor-tinymce
+    
+    if (editor && swedoptions[oneid].fixed == '1') { // fixed position
         if (swedoptions[oneid].horizontal != 'top') {
             one.style.setProperty('--animation-duration','1s');
             one.classList.add('animate__animated');
@@ -38,11 +44,11 @@ for(var i=0; i<boxs.length; i++) {
         }
         one.classList.add(swedoptions[oneid].vertical+'_'+swedoptions[oneid].horizontal);
     }
-    if (swedoptions[oneid].fixed == '2') { // toolbox
+    if (editor && swedoptions[oneid].fixed == '2') { // toolbox
         els.style.marginLeft = 'auto';
         if (toolbar) toolbar.insertBefore(els,pos);
     }
-    if (swedoptions[oneid].fixed == '3') { // editor xtd buttons
+    if (editor && swedoptions[oneid].fixed == '3') { // editor xtd buttons
         if (!xtdbuttons) { 
             tog = document.querySelector('.toggle-editor .btn-group');
             if (tog) { // tinymce
@@ -52,7 +58,7 @@ for(var i=0; i<boxs.length; i++) {
             }
         } else if (xtdbuttons) xtdbuttons.appendChild(els); 
     }
-    if (swedoptions[oneid].fixed == '4') { // in tabs list
+    if (editor && swedoptions[oneid].fixed == '4') { // in tabs list
         tablist = document.querySelector('[role="tablist"]');
         if (tablist) tablist.appendChild(els); 
     }
