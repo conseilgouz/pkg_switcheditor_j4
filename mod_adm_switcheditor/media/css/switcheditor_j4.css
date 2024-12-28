@@ -54,6 +54,7 @@ background: url(../images/select-bg-dark.svg) no-repeat 100%/100rem;
 /* */
 .left_top {
     position: fixed;
+    left: 0vw;
     top: 8em;
     z-index: 1000;
 }
