@@ -63,7 +63,7 @@ background: url(../images/select-bg-dark.svg) no-repeat 100%/100rem;
     top: 50vh;
     left: 0vw;
     transform: rotate(90deg);
-    margin-left: -1em;
+    margin-left: -3em;
     z-index: 1000;
 }
 .left_bottom {
@@ -71,7 +71,7 @@ background: url(../images/select-bg-dark.svg) no-repeat 100%/100rem;
     top: 90vh;
     left: 0vw;
     transform: rotate(90deg);
-    margin-left: -1em;
+    margin-left: -3em;
     z-index: 1000;
 }
 .right_top {
