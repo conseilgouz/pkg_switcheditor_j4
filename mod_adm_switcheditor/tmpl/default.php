@@ -25,8 +25,12 @@ $wa->registerAndUseStyle('switcheditor', 'media/switcheditor/css/switcheditor_j4
 $wa->registerAndUseStyle('animate', 'media/switcheditor/css/mini_animate.css');
 $wa->registerAndUseScript('switcheditor', 'media/switcheditor/js/switcheditor.js');
 $document 	= Factory::getApplication()->getDocument();
-$vertical = $params->get('position')->vertical;
-$horizontal = $params->get('position')->horizontal;
+$horizontal = null;
+$vertical = null;
+if ($params->get('position')) {
+    $vertical = $params->get('position')->vertical;
+    $horizontal = $params->get('position')->horizontal;
+}
 $document->addScriptOptions(
     'mod_switcheditor_'.$module->id,
     array('auto' => $params->get('auto', '0'),'automsg' => Text::_("MOD_SWITCHEDITOR_SWITCHING"),
