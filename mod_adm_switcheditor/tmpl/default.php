@@ -2,7 +2,7 @@
 /**
  * @package    Switch Editor
  * @subpackage mod_switcheditor
- * @copyright  Copyright (C) 2024 ConseilGouz. All rights reserved.
+ * @copyright  Copyright (C) 2025 ConseilGouz. All rights reserved.
  * From anything-digital.com Switch Editor
  * @license    GNU/GPLv2
  */
@@ -27,7 +27,7 @@ $wa->registerAndUseScript('switcheditor', 'media/switcheditor/js/switcheditor.js
 $document 	= Factory::getApplication()->getDocument();
 $horizontal = null;
 $vertical = null;
-if ($params->get('position')) {
+if (is_object($params->get('position'))) {
     $vertical = $params->get('position')->vertical;
     $horizontal = $params->get('position')->horizontal;
 }

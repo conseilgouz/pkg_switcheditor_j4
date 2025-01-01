@@ -1,7 +1,7 @@
 /**
  * @package    Switch Editor
  * @subpackage mod_switcheditor
- * @copyright  Copyright (C) 2024 ConseilGouz. All rights reserved.
+ * @copyright  Copyright (C) 2025 ConseilGouz. All rights reserved.
  * From anything-digital.com Switch Editor
  * @license    GNU/GPLv2
  */
