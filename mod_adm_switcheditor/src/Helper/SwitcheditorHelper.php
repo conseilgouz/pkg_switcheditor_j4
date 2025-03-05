@@ -33,7 +33,7 @@ class SwitcheditorHelper
         if (is_null($editors)) {
             $db = Factory::getContainer()->get(DatabaseInterface::class);
             $db->setQuery(
-                (string) $db->getQuery(true)
+                (string) $db->createQuery()
                     ->select('element, name')
                     ->from('#__extensions')
                     ->where($db->quoteName('type') . ' = ' . $db->Quote('plugin'))
